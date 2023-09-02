@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.camino.flashcard.controller.QuizController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onMenuReturnList" text="Return to List" />
+                  <MenuItem mnemonicParsing="false" onAction="#onMenuClose" text="Close" />
+                    </items>
+                </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onMenuDelete" text="Delete" />
+                  <MenuItem mnemonicParsing="false" onAction="#onMenuModify" text="Modify" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="View">
+               <items>
+                  <Menu mnemonicParsing="false" text="Dimension">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#onMenuLarge" text="Large" />
+                        <MenuItem mnemonicParsing="false" onAction="#onMenuSmall" text="Small" />
+                    </items>
+                  </Menu>
+               </items>
+            </Menu>
+                <Menu mnemonicParsing="false" text="Quiz">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onMenuStart" text="Restart Quiz" />
+                  <MenuItem mnemonicParsing="false" onAction="#onMenuStartWrong" text="Restart With Wrong" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
+                    <children>
+                        <Label prefHeight="16.0" prefWidth="110.0" style="-fx-alignment: center;" text="Question:" HBox.hgrow="NEVER" />
+                        <TextArea fx:id="question" editable="false" style="-fx-wrap-text: true;" HBox.hgrow="ALWAYS" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox prefHeight="248.0" prefWidth="600.0" style="-fx-alignment: center;" VBox.vgrow="ALWAYS">
+                    <children>
+                  <VBox prefWidth="110.0" style="-fx-alignment: center;" HBox.hgrow="NEVER">
+                     <children>
+                              <Label prefWidth="75.0" style="-fx-alignment: center;" text="Answer:" />
+                        <ToggleButton fx:id="toggle" mnemonicParsing="false" onAction="#onViewClick" text="View">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </ToggleButton>
+                     </children>
+                  </VBox>
+                        <TextArea fx:id="answer" editable="false" style="-fx-wrap-text: true;" HBox.hgrow="ALWAYS">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </TextArea>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </VBox.margin></HBox>
+            </children>
+        </VBox>
+    </center>
+   <bottom>
+      <HBox style="-fx-alignment: center;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onWrongClick" prefWidth="70.0" text="Wrong">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="75.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onCorrectClick" prefWidth="70.0" text="Correct">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="75.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
